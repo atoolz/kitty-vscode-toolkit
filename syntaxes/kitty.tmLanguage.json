@@ -1,0 +1,156 @@
+{
+  "$schema": "https://raw.githubusercontent.com/martinring/tmlanguage/master/tmlanguage.json",
+  "name": "Kitty Config",
+  "scopeName": "source.kitty",
+  "patterns": [
+    { "include": "#comment" },
+    { "include": "#include-directive" },
+    { "include": "#map-directive" },
+    { "include": "#mouse-map-directive" },
+    { "include": "#env-directive" },
+    { "include": "#key-value" }
+  ],
+  "repository": {
+    "comment": {
+      "match": "^\\s*#.*$",
+      "name": "comment.line.number-sign.kitty"
+    },
+    "include-directive": {
+      "match": "^\\s*(include|globinclude)\\s+(.+)$",
+      "captures": {
+        "1": { "name": "keyword.control.directive.kitty" },
+        "2": { "name": "string.unquoted.path.kitty" }
+      }
+    },
+    "map-directive": {
+      "match": "^\\s*(map)\\s+(\\S+)\\s+(.+)$",
+      "captures": {
+        "1": { "name": "keyword.control.directive.kitty" },
+        "2": { "name": "entity.name.tag.keybinding.kitty" },
+        "3": {
+          "patterns": [
+            { "include": "#action" }
+          ]
+        }
+      }
+    },
+    "mouse-map-directive": {
+      "match": "^\\s*(mouse_map)\\s+(.+)$",
+      "captures": {
+        "1": { "name": "keyword.control.directive.kitty" },
+        "2": {
+          "patterns": [
+            { "include": "#action" }
+          ]
+        }
+      }
+    },
+    "env-directive": {
+      "match": "^\\s*(env)\\s+([A-Za-z_][A-Za-z0-9_]*)=(.*)",
+      "captures": {
+        "1": { "name": "keyword.control.directive.kitty" },
+        "2": { "name": "variable.other.env.kitty" },
+        "3": { "name": "string.unquoted.value.kitty" }
+      }
+    },
+    "key-value": {
+      "match": "^\\s*([a-zA-Z_][a-zA-Z0-9_]*)\\s+(.*)?$",
+      "captures": {
+        "1": {
+          "patterns": [
+            { "include": "#known-key" }
+          ]
+        },
+        "2": {
+          "patterns": [
+            { "include": "#color-value" },
+            { "include": "#boolean-value" },
+            { "include": "#number-value" },
+            { "include": "#special-keyword" },
+            { "include": "#string-value" }
+          ]
+        }
+      }
+    },
+    "known-key": {
+      "patterns": [
+        {
+          "match": "\\b(font_family|bold_font|italic_font|bold_italic_font|font_size|force_ltr|adjust_line_height|adjust_column_width|disable_ligatures)\\b",
+          "name": "variable.other.key.font.kitty"
+        },
+        {
+          "match": "\\b(cursor_shape|cursor_beam_thickness|cursor_underline_thickness|cursor_blink_interval|cursor_stop_blinking_after|cursor_trail|cursor_trail_decay|cursor_trail_start_threshold)\\b",
+          "name": "variable.other.key.cursor.kitty"
+        },
+        {
+          "match": "\\b(scrollback_lines|scrollback_pager|scrollback_pager_history_size|scrollback_fill_enlarged_window)\\b",
+          "name": "variable.other.key.scrollback.kitty"
+        },
+        {
+          "match": "\\b(mouse_hide_wait|url_color|url_style|open_url_with|url_prefixes|detect_urls|copy_on_select|focus_follows_mouse)\\b",
+          "name": "variable.other.key.mouse.kitty"
+        },
+        {
+          "match": "\\b(repaint_delay|input_delay|sync_to_monitor)\\b",
+          "name": "variable.other.key.performance.kitty"
+        },
+        {
+          "match": "\\b(enable_audio_bell|visual_bell_duration|visual_bell_color|window_alert_on_bell|bell_on_tab|command_on_bell)\\b",
+          "name": "variable.other.key.bell.kitty"
+        },
+        {
+          "match": "\\b(remember_window_size|initial_window_width|initial_window_height|window_border_width|window_margin_width|window_padding_width|active_border_color|inactive_border_color|placement_strategy|hide_window_decorations|confirm_os_window_close)\\b",
+          "name": "variable.other.key.window.kitty"
+        },
+        {
+          "match": "\\b(tab_bar_edge|tab_bar_style|tab_bar_align|tab_bar_min_tabs|tab_switch_strategy|tab_title_template|active_tab_title_template)\\b",
+          "name": "variable.other.key.tab.kitty"
+        },
+        {
+          "match": "\\b(foreground|background|background_opacity|selection_foreground|selection_background|color[0-9]{1,3})\\b",
+          "name": "variable.other.key.color.kitty"
+        },
+        {
+          "match": "\\b(shell|editor|close_on_child_death|allow_remote_control|listen_on|term|clipboard_control|clipboard_max_size)\\b",
+          "name": "variable.other.key.advanced.kitty"
+        },
+        {
+          "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b",
+          "name": "variable.other.key.kitty"
+        }
+      ]
+    },
+    "color-value": {
+      "match": "#[0-9a-fA-F]{6}([0-9a-fA-F]{2})?\\b",
+      "name": "constant.other.color.hex.kitty"
+    },
+    "boolean-value": {
+      "match": "\\b(yes|no)\\b",
+      "name": "constant.language.boolean.kitty"
+    },
+    "number-value": {
+      "match": "-?\\b\\d+(\\.\\d+)?\\b",
+      "name": "constant.numeric.kitty"
+    },
+    "special-keyword": {
+      "match": "\\b(none|true|false|auto|default)\\b",
+      "name": "constant.language.kitty"
+    },
+    "string-value": {
+      "match": ".+",
+      "name": "string.unquoted.value.kitty"
+    },
+    "action": {
+      "patterns": [
+        {
+          "match": "\\b(copy_to_clipboard|paste_from_clipboard|paste_from_selection|scroll_line_up|scroll_line_down|scroll_page_up|scroll_page_down|scroll_home|scroll_end|scroll_to_prompt|show_scrollback|new_window|new_window_with_cwd|close_window|next_window|previous_window|move_window_forward|move_window_backward|start_resizing_window|new_tab|new_tab_with_cwd|close_tab|next_tab|previous_tab|move_tab_forward|move_tab_backward|set_tab_title|next_layout|goto_layout|last_used_layout|toggle_layout|change_font_size|increase_font_size|decrease_font_size|restore_font_size|open_url_with_hints|insert_text|send_text|select_tab|detach_window|detach_tab|close_other_windows_in_tab|toggle_fullscreen|toggle_maximized|input_unicode_character|edit_config_file|kitty_shell|load_config_file|debug_config|clear_terminal|reset_terminal|no_op|combine|discard_event|launch|kitten|create_marker|remove_marker|toggle_marker|scroll_to_mark|show_kitty_env_vars|set_background_opacity|set_colors|neighboring_window|move_window|nth_window|focus_visible_window|swap_with_window|goto_tab|set_spacing|resize_window|signal_child|remote_control)\\b",
+          "name": "support.function.action.kitty"
+        },
+        {
+          "match": "\\S+",
+          "name": "string.unquoted.argument.kitty"
+        }
+      ]
+    }
+  }
+}
