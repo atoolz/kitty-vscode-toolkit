@@ -37,7 +37,7 @@
 Dedicated TextMate grammar built specifically for `kitty.conf`. Unlike generic config highlighters, this grammar understands kitty's unique syntax: comments, directives (`map`, `mouse_map`, `include`, `globinclude`, `env`), key-value options, hex colors, booleans, numbers, and action names.
 
 <p align="center">
-  <img src="assets/demo-completion.svg" alt="Syntax highlighting and completions demo" width="700">
+  <img src="assets/demo-syntax.svg" alt="Syntax highlighting demo" width="700">
 </p>
 
 ### IntelliSense Completions
