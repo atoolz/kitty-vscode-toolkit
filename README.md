@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/banner.svg" alt="Kitty Toolkit for VS Code" width="100%">
+  <img src="assets/banner.png" alt="Kitty Toolkit for VS Code" width="100%">
 </p>
 
 <h1 align="center">Kitty Toolkit</h1>
@@ -37,7 +37,7 @@
 Dedicated TextMate grammar built specifically for `kitty.conf`. Unlike generic config highlighters, this grammar understands kitty's unique syntax: comments, directives (`map`, `mouse_map`, `include`, `globinclude`, `env`), key-value options, hex colors, booleans, numbers, and action names.
 
 <p align="center">
-  <img src="assets/demo-syntax.svg" alt="Syntax highlighting demo" width="700">
+  <img src="assets/demo-syntax.png" alt="Syntax highlighting demo" width="700">
 </p>
 
 ### IntelliSense Completions
@@ -50,7 +50,7 @@ Full autocompletion for all 100+ kitty options with context-aware suggestions.
 - **Action names** for `map` and `mouse_map` directives
 
 <p align="center">
-  <img src="assets/demo-completion.svg" alt="IntelliSense completions demo" width="700">
+  <img src="assets/demo-completion.png" alt="IntelliSense completions demo" width="700">
 </p>
 
 ### Hover Documentation
@@ -58,7 +58,7 @@ Full autocompletion for all 100+ kitty options with context-aware suggestions.
 Hover over any option name to see its description, type, default value, accepted values for enums, and a direct link to the kitty documentation.
 
 <p align="center">
-  <img src="assets/demo-hover.svg" alt="Hover documentation demo" width="700">
+  <img src="assets/demo-hover.png" alt="Hover documentation demo" width="700">
 </p>
 
 ### Diagnostics and Validation
@@ -71,7 +71,7 @@ Real-time validation catches configuration errors as you type:
 - Type mismatches (string where number expected, etc.)
 
 <p align="center">
-  <img src="assets/demo-diagnostics.svg" alt="Diagnostics and validation demo" width="700">
+  <img src="assets/demo-diagnostics.png" alt="Diagnostics and validation demo" width="700">
 </p>
 
 ### Snippets
