@@ -2,7 +2,7 @@
   "name": "kitty-vscode-toolkit",
   "displayName": "Kitty Toolkit",
   "description": "Complete Kitty terminal toolkit: syntax highlighting, IntelliSense, validation, and documentation for kitty.conf configuration",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "publisher": "atoolz",
   "author": {
     "name": "Andre Ahlert"
