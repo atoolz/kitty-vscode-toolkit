@@ -61,8 +61,7 @@ export class KittyDiagnosticProvider implements vscode.Disposable {
     diagnostics: vscode.Diagnostic[],
   ): void {
     const lineText = document.lineAt(pair.line).text;
-    const keyStart = lineText.indexOf(pair.key);
-    if (keyStart < 0) return;
+    const keyStart = lineText.length - lineText.trimStart().length;
 
     const range = new vscode.Range(
       pair.line,
@@ -94,7 +93,8 @@ export class KittyDiagnosticProvider implements vscode.Disposable {
     if (value === "" || value === "none") return;
 
     const lineText = document.lineAt(pair.line).text;
-    const valueStart = lineText.indexOf(value, lineText.indexOf(pair.key) + pair.key.length);
+    const keyStart = lineText.length - lineText.trimStart().length;
+    const valueStart = lineText.indexOf(value, keyStart + pair.key.length);
     if (valueStart < 0) return;
 
     const range = new vscode.Range(

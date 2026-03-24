@@ -42,7 +42,7 @@ export class KittyHoverProvider implements vscode.HoverProvider {
     const keyStart = leadingSpaces;
     const keyEnd = keyStart + key.length;
 
-    if (position.character < keyStart || position.character > keyEnd) {
+    if (position.character < keyStart || position.character >= keyEnd) {
       return undefined;
     }
 
