@@ -181,8 +181,8 @@ export class KittyCompletionProvider
     // The value after "map" is "keybinding action", try to complete the action part
     const parts = ctx.currentValue.trim().split(/\s+/);
 
-    // If there's at least one part (the keybinding), suggest actions
-    if (parts.length >= 1) {
+    // Suggest actions only after the keybinding has been typed
+    if (parts.length >= 2) {
       for (const action of kittyActions) {
         const item = new vscode.CompletionItem(
           action,

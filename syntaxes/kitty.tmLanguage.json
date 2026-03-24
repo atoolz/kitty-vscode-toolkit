@@ -75,19 +75,19 @@
     "known-key": {
       "patterns": [
         {
-          "match": "\\b(font_family|bold_font|italic_font|bold_italic_font|font_size|force_ltr|adjust_line_height|adjust_column_width|disable_ligatures)\\b",
+          "match": "\\b(font_family|bold_font|italic_font|bold_italic_font|font_size|force_ltr|symbol_map|narrow_symbols|disable_ligatures|font_features|modify_font|box_drawing_scale|undercurl_style|underline_exclusion|text_composition_strategy|text_fg_override_threshold)\\b",
           "name": "variable.other.key.font.kitty"
         },
         {
-          "match": "\\b(cursor_shape|cursor_beam_thickness|cursor_underline_thickness|cursor_blink_interval|cursor_stop_blinking_after|cursor_trail|cursor_trail_decay|cursor_trail_start_threshold)\\b",
+          "match": "\\b(cursor|cursor_text_color|cursor_shape|cursor_shape_unfocused|cursor_beam_thickness|cursor_underline_thickness|cursor_blink_interval|cursor_stop_blinking_after|cursor_trail|cursor_trail_decay|cursor_trail_start_threshold|cursor_trail_color)\\b",
           "name": "variable.other.key.cursor.kitty"
         },
         {
-          "match": "\\b(scrollback_lines|scrollback_pager|scrollback_pager_history_size|scrollback_fill_enlarged_window)\\b",
+          "match": "\\b(scrollback_lines|scrollbar|scrollbar_interactive|scrollbar_jump_on_click|scrollbar_width|scrollbar_hover_width|scrollbar_handle_opacity|scrollbar_radius|scrollbar_gap|scrollbar_min_handle_height|scrollbar_hitbox_expansion|scrollbar_track_opacity|scrollbar_track_hover_opacity|scrollbar_handle_color|scrollbar_track_color|scrollback_pager|scrollback_pager_history_size|scrollback_fill_enlarged_window|wheel_scroll_multiplier|wheel_scroll_min_lines|touch_scroll_multiplier|pixel_scroll|momentum_scroll)\\b",
           "name": "variable.other.key.scrollback.kitty"
         },
         {
-          "match": "\\b(mouse_hide_wait|url_color|url_style|open_url_with|url_prefixes|detect_urls|copy_on_select|focus_follows_mouse)\\b",
+          "match": "\\b(mouse_hide_wait|url_color|url_style|open_url_with|url_prefixes|detect_urls|url_excluded_characters|show_hyperlink_targets|underline_hyperlinks|copy_on_select|clear_selection_on_clipboard_loss|paste_actions|strip_trailing_spaces|select_by_word_characters|select_by_word_characters_forward|click_interval|focus_follows_mouse|pointer_shape_when_grabbed|default_pointer_shape|pointer_shape_when_dragging|clear_all_mouse_actions)\\b",
           "name": "variable.other.key.mouse.kitty"
         },
         {
@@ -95,24 +95,32 @@
           "name": "variable.other.key.performance.kitty"
         },
         {
-          "match": "\\b(enable_audio_bell|visual_bell_duration|visual_bell_color|window_alert_on_bell|bell_on_tab|command_on_bell)\\b",
+          "match": "\\b(enable_audio_bell|visual_bell_duration|visual_bell_color|window_alert_on_bell|bell_on_tab|command_on_bell|macos_dock_badge_on_bell|bell_path|linux_bell_theme)\\b",
           "name": "variable.other.key.bell.kitty"
         },
         {
-          "match": "\\b(remember_window_size|initial_window_width|initial_window_height|window_border_width|window_margin_width|window_padding_width|active_border_color|inactive_border_color|placement_strategy|hide_window_decorations|confirm_os_window_close)\\b",
+          "match": "\\b(remember_window_size|initial_window_width|initial_window_height|remember_window_position|enabled_layouts|window_resize_step_cells|window_resize_step_lines|window_border_width|draw_minimal_borders|draw_window_borders_for_single_window|window_margin_width|single_window_margin_width|window_padding_width|single_window_padding_width|placement_strategy|active_border_color|inactive_border_color|bell_border_color|inactive_text_alpha|hide_window_decorations|window_logo_path|window_logo_position|window_logo_alpha|window_logo_scale|resize_debounce_time|resize_in_steps|visual_window_select_characters|confirm_os_window_close|window_drag_tolerance|window_title_bar|window_title_bar_min_windows|window_title_template|active_window_title_template|window_title_bar_active_foreground|window_title_bar_active_background|window_title_bar_inactive_foreground|window_title_bar_inactive_background|window_title_bar_align)\\b",
           "name": "variable.other.key.window.kitty"
         },
         {
-          "match": "\\b(tab_bar_edge|tab_bar_style|tab_bar_align|tab_bar_min_tabs|tab_switch_strategy|tab_title_template|active_tab_title_template)\\b",
+          "match": "\\b(tab_bar_edge|tab_bar_margin_width|tab_bar_margin_height|tab_bar_style|tab_bar_filter|tab_bar_align|tab_bar_min_tabs|tab_switch_strategy|tab_fade|tab_separator|tab_powerline_style|tab_activity_symbol|tab_title_max_length|tab_title_template|active_tab_title_template|active_tab_foreground|active_tab_background|active_tab_font_style|inactive_tab_foreground|inactive_tab_background|inactive_tab_font_style|tab_bar_background|tab_bar_margin_color|tab_bar_drag_threshold)\\b",
           "name": "variable.other.key.tab.kitty"
         },
         {
-          "match": "\\b(foreground|background|background_opacity|selection_foreground|selection_background|color[0-9]{1,3})\\b",
+          "match": "\\b(foreground|background|background_opacity|background_blur|transparent_background_colors|dynamic_background_opacity|background_image|background_image_layout|background_image_linear|background_tint|background_tint_gaps|dim_opacity|selection_foreground|selection_background|color[0-9]{1,3}|mark[1-3]_foreground|mark[1-3]_background)\\b",
           "name": "variable.other.key.color.kitty"
         },
         {
-          "match": "\\b(shell|editor|close_on_child_death|allow_remote_control|listen_on|term|clipboard_control|clipboard_max_size)\\b",
+          "match": "\\b(shell|editor|close_on_child_death|remote_control_password|allow_remote_control|listen_on|filter_notification|watcher|exe_search_path|update_check_interval|startup_session|clipboard_control|clipboard_max_size|file_transfer_confirmation_bypass|allow_hyperlinks|shell_integration|allow_cloning|clone_source_strategies|notify_on_cmd_finish|term|terminfo_type|forward_stdio|menu_map)\\b",
           "name": "variable.other.key.advanced.kitty"
+        },
+        {
+          "match": "\\b(wayland_titlebar_color|macos_titlebar_color|macos_option_as_alt|macos_hide_from_tasks|macos_quit_when_last_window_closed|macos_window_resizable|macos_thicken_font|macos_traditional_fullscreen|macos_show_window_title_in|macos_menubar_title_max_length|macos_custom_beam_cursor|macos_colorspace|linux_display_server|wayland_enable_ime)\\b",
+          "name": "variable.other.key.os.kitty"
+        },
+        {
+          "match": "\\b(kitty_mod|clear_all_shortcuts|map_timeout|action_alias|kitten_alias)\\b",
+          "name": "variable.other.key.shortcuts.kitty"
         },
         {
           "match": "\\b[a-zA-Z_][a-zA-Z0-9_]*\\b",
